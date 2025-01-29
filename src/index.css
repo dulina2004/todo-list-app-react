@@ -140,10 +140,6 @@ li:hover {
         flex-direction: column;
     }
 
-    input[type="text"] {
-        width: 100%;
-    }
-
     button {
         width: 100%;
     }
