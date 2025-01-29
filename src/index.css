@@ -1,23 +1,63 @@
+/* Modern Minimalist Dark Theme CSS */
+:root {
+    --primary-bg: #1a1a1a; /* Dark background */
+    --secondary-bg: #2a2a2a; /* Slightly lighter background */
+    --primary-text: #e0e0e0; /* Light text color */
+    --accent-color: #bb86fc; /* Accent color for buttons and highlights */
+    --error-color: #ff4444; /* Error/delete color */
+    --border-color: #444444; /* Border color */
+}
+
 body {
-    background-color: hsl(0, 6%, 23%);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .to-do-list {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin-top: 100px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 4rem;
-    color: white;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent-color);
 }
 
 button {
-    font-size: 1.7rem;
-    font-weight: bold;
+    font-size: 1rem;
     padding: 10px 20px;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -25,60 +65,94 @@ button {
 }
 
 .add-button {
-    background-color: hsl(122, 39%, 49%);
+    background-color: var(--accent-color);
+    color: var(--primary-text);
 }
 
 .add-button:hover {
-    background-color: hsl(122, 39%, 39%);
-}
-
-.delete-button {
-    background-color: hsl(357, 59%, 48%);
-}
-
-.delete-button:hover {
-    background-color: hsl(357, 59%, 38%);
-}
-
-.move-button {
-    background-color: hsl(189, 73%, 52%);
-}
-
-.move-button:hover {
-    background-color: hsl(189, 73%, 42%);
-}
-
-input[type="text"] {
-    font-size: 1.6rem;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 50%;
-    margin-bottom: 10px;
+    background-color: #9a67ea; /* Slightly darker accent color */
 }
 
 ol {
     padding: 0;
+    list-style-type: none;
 }
 
 li {
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 15px;
-    background-color: hsl(0, 0%, 97%);
-    margin-bottom: 10px;
-    border: 3px solid #ccc;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    background-color: var(--secondary-bg);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 .text {
     flex: 1;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
 }
 
 .delete-button,
 .move-button {
     padding: 8px 12px;
-    font-size: 1.4rem;
-    margin-left: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.delete-button {
+    background-color: var(--error-color);
+    color: var(--primary-text);
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.move-button {
+    background-color: var(--border-color);
+    color: var(--primary-text);
+}
+
+.move-button:hover {
+    background-color: #555555; /* Slightly lighter on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
 }
